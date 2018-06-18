@@ -33,7 +33,7 @@ const rice = {
 })()
 
 function putInBasket (basket, product) {
-  let exists = false
+  let exists
 
   for (let i = 0; i < basket.length; i += 1) {
     if (basket[i].type === product.type) {
