@@ -1,7 +1,8 @@
-let number = -5
+const printResult = number => {
+    const result = number > 0 ? 'positive' : 'negative'
+    console.log(`The number is... ${result}`)
+}
 
-let result = 'The number is... '
+printResult(5)
+printResult(-5)
 
-number < 0 ? result += 'negative' : result += 'positive'
-
-console.log(result)
