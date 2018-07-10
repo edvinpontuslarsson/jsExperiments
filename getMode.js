@@ -7,8 +7,9 @@ const getUserInput = () =>
     process.argv.splice(2)
 
 /**
- * Prints mode number/numbers
- * @param {Array} numbers 
+ * Gets mode number(s)
+ * @param {Array} numbers initial
+ * @returns {Array} mode number(s)
  */
 const getMode = numbers => {
     const obj = {}
@@ -35,7 +36,12 @@ const printMode = mode =>
 
 // run script
 ;(() => {
-    const numbers = getUserInput()
+    const userInput = getUserInput()
+
+    const numbers = 
+        userInput.length > 0 
+        ? userInput
+        : [4, 5, 5, 7, 9, 7, 2]
 
     const mode = getMode(numbers)
 
