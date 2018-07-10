@@ -1,36 +1,43 @@
 'use strict'
 
-// print mode numbers/number
+/**
+ * @returns {Array} user's chosen numbers
+ */
+const getUserInput = () =>
+    process.argv.splice(2)
 
-const getMode = (numbers) => {
+/**
+ * Prints mode number/numbers
+ * @param {Array} numbers 
+ */
+const getMode = numbers => {
     const obj = {}
+    let maxOccurance = 0
 
     numbers.forEach(nr => {
-        if (!obj[nr]) {
-            obj[nr] = 1
-        } else {
-            obj[nr] += 1
+        // populates object with occurance of each number
+        obj[nr] = !obj[nr] ? 1 : obj[nr] + 1
+
+        if (maxOccurance < obj[nr]) {
+            maxOccurance = obj[nr]
         }
     })
 
-    const mode = []
-    
-    Object.keys(obj).forEach(key => {
-        if (mode.length === 0) {
-            mode.push(key)
-        } else if (obj[key] > obj[mode[0]]) {
-            mode = []
-            mode.push(key)
-        } else if (obj[key] === obj[mode[0]]) {
-            mode.push(key)
-        }
-    })
-
-    console.log(`Mode numbers are: ${mode}`)
+    return Object.keys(obj)
+        .filter(key => obj[key] === maxOccurance)
 }
 
-// 3 & 5 most common
-getMode([2, 3, 5, 5, 3, 1, 6])
+/**
+ * @param {Array} mode 
+ */
+const printMode = mode =>
+    console.log(`Mode numbers are: ${mode.join(', ')}`)
 
-// 3 most common
-getMode([1, 2, 3, 3])
+// run script
+;(() => {
+    const numbers = getUserInput()
+
+    const mode = getMode(numbers)
+
+    printMode(mode)
+})()
