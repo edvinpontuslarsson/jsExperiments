@@ -1,3 +1,7 @@
+/**
+ * montyHallProblem
+ */
+
 // https://en.wikipedia.org/wiki/Monty_Hall_problem
 
 /**
@@ -13,3 +17,33 @@
 // scenario 2, player switches to door 2 or 3, depending on which the host opened
 
 // can see which wins the most
+
+'use strict'
+
+/**
+ * @returns either a goat or a car
+ */
+const getPrize = () => {
+    const randomInt = Math.floor(
+        Math.random() * 10
+    )
+
+    return randomInt < 5
+        ? 'A goat!'
+        : 'A car!'
+}
+
+let goats = 0
+let cars = 0
+
+for (let i = 0; i < 2000; i++) {
+    if (getPrize() === 'A goat!') {
+        goats ++
+    } else {
+        cars ++
+    }
+}
+
+console.log(
+    `${goats} goats and ${cars} cars.`
+)
