@@ -17,7 +17,9 @@ const getMode = numbers => {
 
     numbers.forEach(nr => {
         // populates object with occurance of each number
-        obj[nr] = !obj[nr] ? 1 : obj[nr] + 1
+        obj[nr] = !obj[nr] 
+            ? 1 
+            : obj[nr] + 1
 
         if (maxOccurance < obj[nr]) {
             maxOccurance = obj[nr]
@@ -31,8 +33,13 @@ const getMode = numbers => {
 /**
  * @param {Array} mode 
  */
-const printMode = mode =>
-    console.log(`Mode numbers are: ${mode.join(', ')}`)
+const printMode = mode => {
+    const isPlural = mode.length > 1 
+        ? 's are' 
+        : ' is'
+    const info = `Mode number${isPlural}`
+    console.log(`${info}: ${mode.join(', ')}`)
+}
 
 // run script
 ;(() => {
