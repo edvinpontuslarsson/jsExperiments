@@ -1,18 +1,20 @@
 const reverse = (string) => {
-    const arr = string.split("")
+    const array = string.split("")
     
-    const lowerHalf = string.length / 2 - 1
+    const stopIndex = string.length / 2 - 1
 
     let replaceIndex = 0
 
-    for (let i = arr.length - 1; i > lowerHalf; i--) {
-        let temp = arr[replaceIndex]
-        arr[replaceIndex] = arr[i]
-        arr[i] = temp
+    for (let i = array.length - 1; i > stopIndex; i--) {
+        let temp = array[replaceIndex]
+        array[replaceIndex] = array[i]
+        array[i] = temp
         replaceIndex++
     }
 
-    return arr.join("")
+    return array.join("")
 }
 
-console.log(reverse('strings'))
+const userInput = process.argv.splice(2)[0]
+
+console.log(reverse(userInput))
