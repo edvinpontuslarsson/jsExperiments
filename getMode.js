@@ -35,7 +35,7 @@ const getMode = numbers => {
  */
 const printMode = mode => {
     const isPlural = mode.length > 1 
-        ? 's are' 
+        ? 's are'
         : ' is'
     const info = `Mode number${isPlural}`
     console.log(`${info}: ${mode.join(', ')}`)
