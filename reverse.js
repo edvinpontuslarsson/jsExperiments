@@ -15,4 +15,4 @@ const reverse = (string) => {
     return arr.join("")
 }
 
-console.log(reverse('string'))
+console.log(reverse('strings'))
